@@ -8,7 +8,7 @@
         }
     </style>
 </head>
-<body onload="startGame()">
+<body>
 
 </body>
 </html>
@@ -25,15 +25,10 @@
     context.fillStyle = "red";
     context.fillRect(0, 0, 10, 10);
     context.fillStyle = "blue";
-    context.fillRect(0, 10, 10, 10);
-    context.fillStyle = "red";
-    context.fillRect(0, 20, 10, 10);
-    context.fillStyle = "blue";
-    context.fillRect(0, 30, 10, 10);
-    context.fillStyle = "red";
-    context.fillRect(0, 40, 10, 10);
-    context.fillStyle = "blue";
-    context.fillRect(0, 50, 10, 10);
-
+    context.fillRect(200, 200, 10, 10);
+    context.strokeStyle = "blue";
+    context.moveTo(10,10);
+    context.lineTo(200,200);
+    context.stroke();
     // do not edit below here
 </script>
