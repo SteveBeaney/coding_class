@@ -19,26 +19,60 @@ https://github.com/SteveBeaney/coding_class.git"
 
 2. We need to install an editor:
 
-   * Windows:
+   * Windows: https://notepad-plus-plus.org/download/v7.5.1.html
 
-   * Mac:
+   * Mac: https://www.barebones.com/products/textwrangler/download.html
 
 3. If you don't have chrome we need it too:
 
+   * Windows: https://www.google.co.uk/chrome/browser/features.html
 
-   * Windows:
+   * Mac: https://www.google.co.uk/chrome/browser/features.html
 
-   * Mac:
-
-
-
-
-
-We will review a simple linear program.
+We will review a simple linear program. A program is a simple sequence of steps. 
 ## Lesson 2 Variables
-Introducing simple numerical variables. 
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
+
+Introducing simple numerical variables. Variables represent a value, 
+this value can change.
+That they 'vary' between different values is where the name comes from. 
+We can also perform arithmetic on variables.
+The perimeter of a quadrilateral (square or rectangle etc) is 2 * (x + y) or 2 * x + 2 * y . The area of a square or rectangle is x * y .
+
 ## Lesson 3 Looping
-## Lesson 4 Decisions
-## Lesson 5 Functions
-## Lesson 6 Animations
-## Lesson 7 Graphs
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
+
+This is a simple lesson. We look at 2 cases of repeating an action: 
+- repeating for an exact number of times (iterations). E.g. drawing 10 squares.
+- repeating until something happens or while something is happening.
+
+## Lesson 4 Graphs
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
+
+Because we know about loops and arithmetic on variables. It is possible for us to draw mathematical shapes and see what mathematics looks like.
+
+## Lesson 5 Decisions
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
+
+## Lesson 6 Functions
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
+## Lesson 7 Animations
+1. Open a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git pull"
+     - this refreshes the files in case any have been updated
