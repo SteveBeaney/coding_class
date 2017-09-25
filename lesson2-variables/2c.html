@@ -21,14 +21,25 @@
     let context = canvas.getContext("2d");
 
     // do not edit above here
-
-    let size = 10;
+    // https://www.w3schools.com/js/js_variables.asp
+    let x = 10;
+    let y = 10;
+    let area = x * y;
     context.fillStyle = "red";
-    context.fillRect(10, 120, size, size);
+    context.fillRect(10, 120, x, y);
 
-    size = 20;
+    y = 40;
+    area = x * y;
     context.fillStyle = "red";
-    context.fillRect(30, 120, size, size);
+    context.fillRect(30, 120, x, y);
+
+    // https://www.w3schools.com/graphics/canvas_text.asp
+    context.fillText( area, 70, 120);
+
+    //exercise
+    // create a new variabele called perimeter and create the correct value
+
+    // output the perimiter below (greater Y value) than the area
 
 
     // do not edit above here

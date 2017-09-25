@@ -21,15 +21,17 @@
     let context = canvas.getContext("2d");
 
     // do not edit above here
-
+    // https://www.w3schools.com/js/js_variables.asp
     let size = 10;
     context.fillStyle = "red";
     context.fillRect(10, 120, size, size);
 
-    size = 20;
+    size = size * 4;
     context.fillStyle = "red";
     context.fillRect(30, 120, size, size);
 
+    // https://www.w3schools.com/graphics/canvas_text.asp
+    context.fillText( size, 70, 120);
 
     // do not edit above here
 </script>
