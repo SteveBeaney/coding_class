@@ -24,17 +24,16 @@
     // https://www.w3schools.com/js/js_variables.asp
     let x = 10;
     let y = 10;
-    let area = x * y;
     context.fillStyle = "red";
     context.fillRect(10, 120, x, y);
 
     y = 40;
-    area = x * y;
+    let area = x * y;
     context.fillStyle = "red";
     context.fillRect(30, 120, x, y);
 
     // https://www.w3schools.com/graphics/canvas_text.asp
-    context.fillText( area, 70, 120);
+    context.fillText( area.toString(), 70, 120);
 
     //exercise
     // create a new variabele called perimeter and create the correct value
