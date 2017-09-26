@@ -18,8 +18,14 @@
     document.body.insertBefore(canvas, document.body.childNodes[0]);
     canvas.width = 800;
     canvas.height = 600;
+    let context = canvas.getContext("2d");
 
     // do not edit above here
-    
-    // do not edit above here
+    // https://www.w3schools.com/js/js_loop_for.asp
+    for( let i = 0; i < 10; i = i+1 ) {
+        context.fillStyle = "red";
+        context.fillRect(i*10, i*10, 10, 10);
+    }
+
+    // do not edit below here
 </script>
