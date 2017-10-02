@@ -16,10 +16,45 @@
 
     let canvas = document.createElement("canvas");
     document.body.insertBefore(canvas, document.body.childNodes[0]);
-    canvas.width = 800;
+    canvas.width = 600;
     canvas.height = 600;
+    let context = canvas.getContext("2d");
 
     // do not edit above here
+
+    function plotLine( x , y ) {
+        context.lineTo(xTrans(x), yTrans(y));
+    }
+
+    function moveLine( x , y ) {
+        context.moveTo(xTrans(x), yTrans(y));
+    }
+
+    function yTrans(y) {
+        return -(y - yOrigin) / ((yMax - yOrigin) / canvas.height) + canvas.height;
+    }
+
+    function xTrans(x) {
+        return (x-xOrigin) / ((xMax - xOrigin) / canvas.width);
+    }
+
+    function f( x ){
+        return x*x*x+Math.sin(x*20);
+    }
+
+    let xOrigin = -5;
+    let yOrigin = -50;
+    let xMax = 5;
+    let yMax = 50;
+
+    context.strokeStyle = "red";
+
+    moveLine(xOrigin, f(xOrigin));                           // move to the start of the line
+    for (let x = xOrigin; x <= xMax; x = x + 0.01) {         // loop over the x values
+        plotLine(x, f(x));
+    }
+    context.stroke();
+
 
     // do not edit below here
 </script>
