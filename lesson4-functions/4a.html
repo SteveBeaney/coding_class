@@ -30,16 +30,16 @@
         context.moveTo(xTrans(x), yTrans(y));
     }
 
-    function yTrans(y) {
+    function yTrans(y) {                                   // transforms world to view for y coord
         return -(y - yOrigin) / ((yMax - yOrigin) / canvas.height) + canvas.height;
     }
 
-    function xTrans(x) {
+    function xTrans(x) {                                   // transforms world to view for y coord
         return (x-xOrigin) / ((xMax - xOrigin) / canvas.width);
     }
 
-    function f( x ){
-        return x*x*x+Math.sin(x*20);
+    function f( x ){                                        // mathmatical function to plot
+        return Math.pow(x,3)+Math.sin(x*20);
     }
 
     let xOrigin = -5;
