@@ -33,7 +33,7 @@ We will review a simple linear program. A program is a simple sequence of steps.
 ## Lesson 2 Variables
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 
 Introducing simple numerical variables. Variables represent a value, 
@@ -45,7 +45,7 @@ The perimeter of a quadrilateral (square or rectangle etc) is 2 * (x + y) or 2 *
 ## Lesson 3 Looping
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 
 This is a simple lesson. We look at 2 cases of repeating an action: 
@@ -55,7 +55,7 @@ This is a simple lesson. We look at 2 cases of repeating an action:
 ## Lesson 4 Functions
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 
 Because we know about loops and arithmetic on variables. It is possible for us to draw mathematical shapes and see what mathematics looks like. We will need functions for this.
@@ -63,16 +63,16 @@ Because we know about loops and arithmetic on variables. It is possible for us t
 ## Lesson 5 Decisions
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 
 ## Lesson 6 User input
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 ## Lesson 7 Animations
 1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --force" then "git pull"
+     - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
