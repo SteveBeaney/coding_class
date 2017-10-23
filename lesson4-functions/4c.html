@@ -22,17 +22,29 @@
 
     // do not edit above here
     // https://www.w3schools.com/js/js_loop_for.asp
+    // https://www.w3schools.com/js/js_functions.asp
 
-    // answers (there will be other correct answers)
+
+    // this function wraps the code for 4c and 4b
+    // now the code is in one place
+    function plot_square( x, y, size, colour){
+        context.fillStyle = colour;
+        context.fillRect(x, y, size, size);
+    }
+
     for( let i = 0; i < 20; i = i+1 ) {
-        context.fillStyle = "green ";
-        context.fillRect(i*10, i*10, 10, 10);
+        plot_square( i*10, i*10, 10, "red" )
     }
 
     for( let i = 0; i < 10; i = i+1 ) {
-        context.fillStyle = "red ";
-        context.fillRect(100+i*20, i*20, 10, 10);
+        plot_square(100+i*20, i*20, 10, "green");
     }
+
+    //exercise:
+    //          make the green squares size 20 (bigger)
+    //
+    //          make a third set or blue squares a further 100 pixels into the canvas
+    //            hint   0 + i * 10,  100 + i * 20, 200 + i * 20
 
     // do not edit below here
 </script>

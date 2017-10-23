@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid #a3a3a3;
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let canvas = document.createElement("canvas");
+    document.body.insertBefore(canvas, document.body.childNodes[0]);
+    canvas.width = 900;
+    canvas.height = 600;
+    let context = canvas.getContext("2d");
+
+    // do not edit above here
+
+    function plotLine( x , y ) {
+        context.lineTo(xTrans(x), yTrans(y));
+    }
+
+    function moveLine( x , y ) {
+        context.moveTo(xTrans(x), yTrans(y));
+    }
+
+    function yTrans(y) {                                   // transforms world to view for y coord
+        return -(y - yOrigin) / ((yMax - yOrigin) / canvas.height) + canvas.height;
+    }
+
+    function xTrans(x) {                                   // transforms world to view for y coord
+        return (x-xOrigin) / ((xMax - xOrigin) / canvas.width);
+    }
+
+
+    function f( x ){                                        // mathematical function to plot
+        return Math.pow(x,3)+Math.sin(x*10)*10;
+    }
+
+
+    // code starts here
+
+    let xOrigin = -5;
+    let yOrigin = -50;
+    let xMax = 5;
+    let yMax = 50;
+
+    context.strokeStyle = "red";
+    moveLine(xOrigin, f(xOrigin));                           // move to the start of the line
+    for (let x = xOrigin; x <= xMax; x = x + 0.01) {         // loop over the x values
+        plotLine(x, f(x));
+    }
+    context.stroke();
+
+    // exercise
+    // try other math functions (change the code in line 43
+    //     eg/
+    //         Math.sin(x*10)*10;
+    //         Math.pow(x,3);
+    //         Math.pow(x,2);
+    //         x*x*x*4+x*x*16-40;
+    //         x*x*x*4+x*x*16-40+Math.sin(x*10)*10;
+
+    // do not edit below here
+</script>

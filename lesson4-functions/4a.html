@@ -16,44 +16,105 @@
 
     let canvas = document.createElement("canvas");
     document.body.insertBefore(canvas, document.body.childNodes[0]);
-    canvas.width = 600;
+    canvas.width = 800;
     canvas.height = 600;
     let context = canvas.getContext("2d");
 
     // do not edit above here
 
-    function plotLine( x , y ) {
-        context.lineTo(xTrans(x), yTrans(y));
-    }
+    context.fillStyle = "red";
+    context.fillRect(  0,   0, 10, 10);
 
-    function moveLine( x , y ) {
-        context.moveTo(xTrans(x), yTrans(y));
-    }
+    context.fillStyle = "red";
+    context.fillRect( 10,  10, 10, 10);
 
-    function yTrans(y) {                                   // transforms world to view for y coord
-        return -(y - yOrigin) / ((yMax - yOrigin) / canvas.height) + canvas.height;
-    }
+    context.fillStyle = "red";
+    context.fillRect( 20,  20, 10, 10);
 
-    function xTrans(x) {                                   // transforms world to view for y coord
-        return (x-xOrigin) / ((xMax - xOrigin) / canvas.width);
-    }
+    context.fillStyle = "red";
+    context.fillRect( 30,  30, 10, 10);
 
-    function f( x ){                                        // mathmatical function to plot
-        return Math.pow(x,3)+Math.sin(x*20);
-    }
+    context.fillStyle = "red";
+    context.fillRect( 40,  40, 10, 10);
 
-    let xOrigin = -5;
-    let yOrigin = -50;
-    let xMax = 5;
-    let yMax = 50;
+    context.fillStyle = "red";
+    context.fillRect( 50,  50, 10, 10);
 
-    context.strokeStyle = "red";
+    context.fillStyle = "red";
+    context.fillRect( 60,  60, 10, 10);
 
-    moveLine(xOrigin, f(xOrigin));                           // move to the start of the line
-    for (let x = xOrigin; x <= xMax; x = x + 0.01) {         // loop over the x values
-        plotLine(x, f(x));
-    }
-    context.stroke();
+    context.fillStyle = "red";
+    context.fillRect( 70,  70, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect( 80,  80, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect( 90,  90, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(100, 100, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(110, 110, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(120, 120, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(130, 130, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(140, 140, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(150, 150, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(160, 160, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(170, 170, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(180, 180, 10, 10);
+
+    context.fillStyle = "red";
+    context.fillRect(190, 190, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(100,   0, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(120,  20, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(140,  40, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(160,  60, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(180,  80, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(200, 100, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(220, 120, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(240, 140, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(260, 160, 10, 10);
+
+    context.fillStyle = "green";
+    context.fillRect(280, 180, 10, 10);
+
+    // in this code we repeat ourselves a lot, each repeat is only a little different
+    // the main problem with this is the amount of work to type all this
+    // the secondary problem is that it is difficult to generalise the behaviour, without rewriting code all the time
 
 
     // do not edit below here
