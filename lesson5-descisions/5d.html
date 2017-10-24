@@ -19,6 +19,7 @@
     canvas.width = 800;
     canvas.height = 600;
     let context = canvas.getContext("2d");
+    const puckSize = 10;
 
     // do not edit above here
     function plot_square( x, y, size, colour){
@@ -27,10 +28,18 @@
     }
 
     let i = 0;
+    let delta = 1;
 
     function update() {
-        plot_square(i , 0, 10, "red");
-        i++;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        plot_square(i , 0, puckSize, "red");
+        i = i + delta;
+        if( i > canvas.width - puckSize){
+            delta = -1;
+        }
+        if( i < 0 ){
+            delta = 1;
+        }
     }
 
     setInterval(update, 10);
