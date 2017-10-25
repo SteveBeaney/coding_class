@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid #a3a3a3;
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    const game_width = 906;
+    const game_height = 600;
+
+    let game_area = {
+        canvas: document.createElement("canvas"),
+        start: function () {
+            this.canvas.width = game_width;
+            this.canvas.height = game_height;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            window.addEventListener('keydown', function (e) {
+                game_area.key = e.keyCode;
+            });
+            window.addEventListener('keyup', function () {
+                game_area.key = false;
+            });
+            setInterval(updateGameArea, 16);
+        },
+        clear: function () {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+    };
+
+    let ball = {
+        radius: 5,
+        color: "red",
+        x: game_width/2.0,
+        y: game_height/2.0,
+        x_speed: 1,
+        y_speed: 1,
+        update: function () {
+            game_area.context.beginPath();
+            game_area.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+            game_area.context.fillStyle = this.color;
+            game_area.context.fill();
+            this.move();
+        },
+        move: function () {
+            this.x += this.x_speed;
+            if( this.x <= this.radius || this.x >= game_area.canvas.width - this.radius ) {
+                this.x_speed *= -1;
+            };
+            this.y += this.y_speed;
+            if( this.y <= this.radius || this.y >= game_area.canvas.height - this.radius ) {
+                this.y_speed *= -1;
+            };
+        }
+    };
+
+    let bat = {
+        height: 5,
+        width : 60,
+        color: "black",
+        x: 0,
+        x_speed: 10,
+        update: function () {
+            game_area.context.fillStyle = this.color;
+            game_area.context.fillRect(this.x, game_area.canvas.height - this.height, this.width, this.height);
+            this.move();
+        },
+        move: function () {
+            if( game_area.key && game_area.key == 37 && this.x > 0 ){
+                this.x -= this.x_speed;
+            }
+            if( game_area.key && game_area.key == 39 && this.x < game_area.canvas.width - this.width ){
+                this.x += this.x_speed;
+            }
+        }
+    };
+
+    function updateGameArea() {
+        game_area.clear();
+        ball.update();
+        bat.update();
+    }
+
+    game_area.start();
+
+
+
+
+    // do not edit below here
+</script>
