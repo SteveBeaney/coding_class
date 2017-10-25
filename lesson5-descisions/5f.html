@@ -19,23 +19,18 @@
     canvas.width = 800;
     canvas.height = 600;
     let context = canvas.getContext("2d");
-    const puckSize = 10;
+    const puckSize = 5;
 
     // do not edit above here
     function plot_square( x, y, size, colour){
         context.beginPath();
-        context.arc(x, y, 5, 0, 2 * Math.PI, false);
+        context.arc(x, y, puckSize, 0, 2 * Math.PI, false);
         context.fillStyle = 'green';
         context.fill();
-        context.lineWidth = 1;
-        context.strokeStyle = '#003300';
-        context.stroke();
-//        context.fillStyle = colour;
-//        context.fillRect(x, y, size, size);
     }
 
-    let i = 0;
-    let j = 0;
+    let i = puckSize;
+    let j = puckSize;
     let delta_i = 1;
     let delta_j = 1;
 
@@ -45,20 +40,20 @@
         i = i + delta_i;
         j = j + delta_j;
         if( i > canvas.width - puckSize){
-            delta_i = -1;
+            delta_i = -delta_i;
         }
-        if( i < 0 ){
-            delta_i = 1;
+        if( i < puckSize ){
+            delta_i = -delta_i;
         }
         if( j > canvas.height - puckSize){
-            delta_j = -1;
+            delta_j = -delta_j;
         }
-        if( j < 0 ){
-            delta_j = 1;
+        if( j <= puckSize ){
+            delta_j = -delta_j;
         }
     }
 
-    setInterval(update, 5);
+    setInterval(update, 1);
 
 
 
