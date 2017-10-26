@@ -13,8 +13,8 @@
 </body>
 </html>
 <script>
-    const game_width = 906;
-    const game_height = 600;
+    const game_width = 900;
+    const game_height = 400;
 
     let game_area = {
         canvas: document.createElement("canvas"),
@@ -22,14 +22,14 @@
             this.canvas.width = game_width;
             this.canvas.height = game_height;
             this.context = this.canvas.getContext("2d");
-            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-            window.addEventListener('keydown', function (e) {
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);   // creates the canvas
+            window.addEventListener('keydown', function (e) {           // listen to keyboard
                 game_area.key = e.keyCode;
             });
-            window.addEventListener('keyup', function () {
+            window.addEventListener('keyup', function () {              // listen to keyboard
                 game_area.key = false;
             });
-            setInterval(updateGameArea, 16);
+            setInterval(updateGameArea, 1);                             // sets the game loop
         },
         clear: function () {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -39,10 +39,10 @@
     let ball = {
         radius: 5,
         color: "red",
-        x: game_width/2.0,
-        y: game_height/2.0,
-        x_speed: 1,
-        y_speed: 1,
+        x: game_width / 2.0,
+        y: game_height / 2.0,
+        x_speed: 0.2,
+        y_speed: -0.2,
         update: function () {
             game_area.context.beginPath();
             game_area.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
@@ -52,47 +52,69 @@
         },
         move: function () {
             this.x += this.x_speed;
-            if( this.x <= this.radius || this.x >= game_area.canvas.width - this.radius ) {
-                this.x_speed *= -1;
-            };
+            if (this.x <= this.radius || this.x >= game_area.canvas.width - this.radius) {
+                this.x_speed *= -1;                  // bounce if wall hit
+            }
             this.y += this.y_speed;
-            if( this.y <= this.radius || this.y >= game_area.canvas.height - this.radius ) {
-                this.y_speed *= -1;
-            };
+            if (this.y <= this.radius) {
+                this.y_speed *= -1;                  // bounce if ceiling hit
+            }
+            if (this.y >= game_area.canvas.height) {
+                this.x_speed = 0.2;                  // reset if fall through floor
+                this.y_speed = -0.2;
+                this.x = game_width / 2.0;
+                this.y = game_height / 2.0;
+                score.miss += 1;
+            }
+            if (this.y >= game_area.canvas.height - bat.height - this.radius &&
+                this.x >= bat.x - this.radius &&
+                this.x <= bat.x + bat.width + this.radius) {
+                this.y_speed *= -1;                  // bounce if bat hit
+                score.hits += 1;
+            }
         }
     };
 
     let bat = {
         height: 5,
-        width : 60,
+        width: 60,
         color: "black",
         x: 0,
-        x_speed: 10,
+        x_speed: 2,
         update: function () {
             game_area.context.fillStyle = this.color;
             game_area.context.fillRect(this.x, game_area.canvas.height - this.height, this.width, this.height);
             this.move();
         },
         move: function () {
-            if( game_area.key && game_area.key == 37 && this.x > 0 ){
-                this.x -= this.x_speed;
+            if (game_area.key && game_area.key == 37 && this.x > 0) {
+                this.x -= this.x_speed;                 // if left arrow pressed and enough room move left
             }
-            if( game_area.key && game_area.key == 39 && this.x < game_area.canvas.width - this.width ){
-                this.x += this.x_speed;
+            if (game_area.key && game_area.key == 39 && this.x < game_area.canvas.width - this.width) {
+                this.x += this.x_speed;                 // if right arrow pressed and enough room move right
             }
         }
     };
 
-    function updateGameArea() {
+    let score = {
+        hits: 0,
+        miss: 0,
+        update: function () {
+            game_area.context.font = "20px Consolas";
+            game_area.context.fillStyle = 'black';
+            game_area.context.fillText("score " + this.hits + " : " + this.miss, game_area.canvas.width - 150, 20);
+            this.move();
+        }
+    };
+
+    function updateGameArea() {    // when we set up the game area we set a timer that calls this every milli second
         game_area.clear();
         ball.update();
         bat.update();
+        score.update();
     }
 
-    game_area.start();
-
-
-
+    game_area.start();  //this starts the game
 
     // do not edit below here
 </script>
