@@ -60,19 +60,15 @@ This is a simple lesson. We look at 2 cases of repeating an action:
 
 Because we know about loops and arithmetic on variables. It is possible for us to draw mathematical shapes and see what mathematics looks like. We will need functions for this.
 
-## Lesson 5 Decisions
+## Lesson 5 Animation
 1. Open a cmd line and cd to the repos/coding_class dir.
 
      - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
 
-## Lesson 6 User input
+## Example 1 - a game of ping
 1. Open a cmd line and cd to the repos/coding_class dir.
 
      - Run this: "git reset --hard" then "git pull"
      - this refreshes the files in case any have been updated
-## Lesson 7 Animations
-1. Open a cmd line and cd to the repos/coding_class dir.
 
-     - Run this: "git reset --hard" then "git pull"
-     - this refreshes the files in case any have been updated
