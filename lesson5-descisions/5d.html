@@ -27,17 +27,17 @@
         context.fillRect(x, y, size, size);
     }
 
-    let i = 0;
+    let x = 0;
     let delta = 1;
 
     function update() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        plot_square(i , 0, puckSize, "red");
-        i = i + delta;
-        if( i > canvas.width - puckSize){
+        plot_square(x , 0, puckSize, "red");
+        x = x + delta;
+        if( x > canvas.width - puckSize){
             delta = -1;
         }
-        if( i < 0 ){
+        if( x < 0 ){
             delta = 1;
         }
     }

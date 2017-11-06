@@ -29,27 +29,27 @@
         context.fill();
     }
 
-    let i = puckSize;
-    let j = puckSize;
-    let delta_i = 1;
-    let delta_j = 1;
+    let x = puckSize;
+    let y = puckSize;
+    let delta_x = 1;
+    let delta_y = 1;
 
     function update() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        plot_square(i , j, puckSize, "red");
-        i = i + delta_i;
-        j = j + delta_j;
-        if( i > canvas.width - puckSize){
-            delta_i = -delta_i;
+        plot_square(x , y, puckSize, "red");
+        x = x + delta_x;
+        y = y + delta_y;
+        if( x > canvas.width - puckSize){
+            delta_x = -delta_x;
         }
-        if( i < puckSize ){
-            delta_i = -delta_i;
+        if( x < puckSize ){
+            delta_x = -delta_x;
         }
-        if( j > canvas.height - puckSize){
-            delta_j = -delta_j;
+        if( y > canvas.height - puckSize){
+            delta_y = -delta_y;
         }
-        if( j <= puckSize ){
-            delta_j = -delta_j;
+        if( y <= puckSize ){
+            delta_y = -delta_y;
         }
     }
 

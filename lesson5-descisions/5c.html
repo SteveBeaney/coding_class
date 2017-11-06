@@ -26,14 +26,14 @@
         context.fillRect(x, y, size, size);
     }
 
-    let i = 0;
+    let x = 0;
 
     function update() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        plot_square(i , 0, 10, "red");
-        i++;
-        if( i > canvas.width - 10){
-            i=0;
+        plot_square(x , 0, 10, "red");
+        x++;
+        if( x > canvas.width - 10){
+            x=0;
         }
     }
 
