@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid #a3a3a3;
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    const game_width = 900;
+    const game_height = 700;
+
+    let game_area = {
+        centre_x: game_width / 2,
+        centre_y: game_height / 2,
+        radius: Math.min(game_width, game_height) / 2,
+        canvas: document.createElement("canvas"),
+        start: function () {
+            this.canvas.width = game_width;
+            this.canvas.height = game_height;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);   // creates the canvas
+            setInterval(updateGameArea, 1000);                             // sets the game loop
+        },
+        clear: function () {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+    };
+
+    let hour_hand = {
+        update: function () {
+            let d = new Date();
+            let h = d.getHours();
+            if (h > 11) {                                     //  adjust for 12 hour clock
+                h = h - 12
+            }
+            h = h*60 + d.getMinutes();
+            let hour_angle = (-Math.PI * 2) / 720 * h + Math.PI ;
+            let x = Math.sin( hour_angle ) * game_area.radius * 0.5 + game_area.centre_x;
+            let y = Math.cos( hour_angle ) * game_area.radius * 0.5 + game_area.centre_y;
+            let context = game_area.canvas.getContext("2d");
+            context.beginPath()
+            context.strokeStyle = "blue";
+            context.moveTo(game_area.centre_x,game_area.centre_y);
+            context.lineTo(x,y);
+            context.stroke();
+        }
+    }
+
+    let min_hand = {
+        update: function () {
+            let d = new Date();
+            let m = d.getMinutes();
+            let min_angle = (-Math.PI * 2) / 60 * m + Math.PI ;
+            let x = Math.sin( min_angle ) * game_area.radius * 0.7 + game_area.centre_x;
+            let y = Math.cos( min_angle ) * game_area.radius * 0.7 + game_area.centre_y;
+            let context = game_area.canvas.getContext("2d");
+            context.beginPath()
+            context.strokeStyle = "green";
+            context.moveTo(game_area.centre_x,game_area.centre_y);
+            context.lineTo(x,y);
+            context.stroke();
+        }
+    }
+
+    let sec_hand = {
+        update: function () {
+            let d = new Date();
+            let s = d.getSeconds();
+            let sec_angle = (-Math.PI * 2) / 60 * s + Math.PI ;
+            let x = Math.sin( sec_angle ) * game_area.radius * 0.8 + game_area.centre_x;
+            let y = Math.cos( sec_angle ) * game_area.radius * 0.8 + game_area.centre_y;
+            let context = game_area.canvas.getContext("2d");
+            context.beginPath()
+            context.strokeStyle = "red";
+            context.moveTo(game_area.centre_x,game_area.centre_y);
+            context.lineTo(x,y);
+            context.stroke();
+        }
+    }
+
+    let face = {
+        update: function () {
+            for( let h = 0; h < 12; h++) {
+                let hour_angle = (-Math.PI * 2) / 12 * h + Math.PI ;
+                let x_s = Math.sin(hour_angle) * game_area.radius * 0.90 + game_area.centre_x;
+                let y_s = Math.cos(hour_angle) * game_area.radius * 0.90 + game_area.centre_y;
+                let x = Math.sin(hour_angle) * game_area.radius * 0.85 + game_area.centre_x;
+                let y = Math.cos(hour_angle) * game_area.radius * 0.85 + game_area.centre_y;
+                let x1 = Math.sin(hour_angle) * game_area.radius * 0.80 + game_area.centre_x;
+                let y1 = Math.cos(hour_angle) * game_area.radius * 0.80 + game_area.centre_y;
+                let context = game_area.canvas.getContext("2d");
+                context.beginPath()
+                context.strokeStyle = "black";
+                context.moveTo(x1, y1);
+                context.lineTo(x, y);
+                context.stroke();
+                context.font = "20px Consolas";
+                context.fillStyle = 'black';
+                let hh = h;
+                if( h == 0 ) {
+                    hh=12;
+                }
+                context.fillText(hh , x_s-10,y_s+10);
+
+            }
+            for( let s = 0; s < 60; s++) {
+                let sec_angle = (-Math.PI * 2) / 60 * s + Math.PI ;
+                let x = Math.sin(sec_angle) * game_area.radius * 0.81 + game_area.centre_x;
+                let y = Math.cos(sec_angle) * game_area.radius * 0.81 + game_area.centre_y;
+                let x1 = Math.sin(sec_angle) * game_area.radius * 0.80 + game_area.centre_x;
+                let y1 = Math.cos(sec_angle) * game_area.radius * 0.80 + game_area.centre_y;
+                let context = game_area.canvas.getContext("2d");
+                context.beginPath()
+                context.strokeStyle = "black";
+                context.moveTo(x1, y1);
+                context.lineTo(x, y);
+                context.stroke();
+            }
+        }
+    }
+
+    function updateGameArea() {    // when we set up the game area we set a timer that calls this every milli second
+        game_area.clear();
+        hour_hand.update();
+        min_hand.update();
+        sec_hand.update();
+        face.update();
+    }
+
+    game_area.start();  //this starts the game
+
+    // do not edit below here
+</script>
