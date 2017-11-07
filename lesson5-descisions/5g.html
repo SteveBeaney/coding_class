@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid #a3a3a3;
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let canvas = document.createElement("canvas");
+    document.body.insertBefore(canvas, document.body.childNodes[0]);
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext("2d");
+
+    // do not edit above here
+    img = new Image();
+    img.src ='http://www.clker.com/cliparts/5/I/m/Z/F/m/fire-ball.svg';
+
+    function plot_puck( x, y, size, colour){
+        context.drawImage(img,x,y)
+    }
+
+    let x = 0;
+
+    function update() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        plot_puck(x , 0, 10, "red");
+        x++;
+    }
+
+    setInterval(update, 10);
+
+    // do not edit below here
+</script>

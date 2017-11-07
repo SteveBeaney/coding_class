@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid #a3a3a3;
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let canvas = document.createElement("canvas");
+    document.body.insertBefore(canvas, document.body.childNodes[0]);
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext("2d");
+
+    // do not edit above here
+    img = new Image();
+    img.src ='Fireball.png';
+    const puckSize = 20;
+
+    function plot_puck( x, y, size, colour){
+        context.drawImage(img,x,y)
+    }
+
+    let x = puckSize;
+    let y = puckSize;
+    let delta_x = 1;
+    let delta_y = 1;
+
+    function update() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        plot_puck(x , y);
+        x = x + delta_x;
+        y = y + delta_y;
+        if( x > canvas.width - puckSize){
+            delta_x = -delta_x;
+        }
+        if( x < puckSize ){
+            delta_x = -delta_x;
+        }
+        if( y > canvas.height - puckSize){
+            delta_y = -delta_y;
+        }
+        if( y <= puckSize ){
+            delta_y = -delta_y;
+        }
+    }
+
+    setInterval(update, 10);
+
+
+
+
+
+    // do not edit below here
+</script>
