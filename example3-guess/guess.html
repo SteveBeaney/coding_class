@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="reset();">
+<div align="center">
+    <h1>Guess the Number</h1><br>
+    <h5>I've thought of a number (between 0 and 1000 inclusive), enter your guess</h5><br>
+    <h5 id="message"></h5>
+    <div>
+        <div id="guess_str">0 guesses</div>
+        <input type="text" id="guess" value="">
+        <button onclick="guess();">Enter guess</button>
+    </div>
+    <br><br><br>
+    <button onclick="reset();">New Game</button>
+</div>
+
+</body>
+</html>
+<script>
+    
+    let number = Math.floor(Math.random() * 1001) ;
+    let guesses = 0;
+    let message = "";
+
+    function guess() {
+        guesses++;
+        let g = document.getElementById("guess").value;
+        if( !isNaN(g)){
+            if( g==number){
+                message = "Congratulations you guessed it!"
+            }
+            if( g<number){
+                message = "my number is bigger than that!"
+            }
+            if( g>number){
+                message = "my number is smaller than that!"
+            }
+        }else{
+            message = "guess must be a number";
+        }
+        update();
+    }
+
+    function reset() {
+        number = Math.floor(Math.random() * 1001) ;
+        guesses = 0;
+        message = "New game!"
+        update();
+    }
+
+    function update() {
+        document.getElementById("guess_str").innerHTML = guesses + " guesses"
+        document.getElementById("guess").value = "";
+        document.getElementById("message").innerHTML = message;
+    }
+
+</script>
