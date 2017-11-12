@@ -1,4 +1,35 @@
 # Programming beginners
+
+## Project time
+
+pen a cmd line and cd to the repos/coding_class dir.
+
+     - Run this: "git reset --hard" then "git pull"
+     - this refreshes the files in case any have been updated
+
+There are 3 example projects.
+   * Ping 
+   * Clock
+   * Guess
+
+You should look at all three of these in chrome and see what they do. Your instructor will go through the code for each 
+and show you how they work.
+
+You should choose one of these to work on.
+Copy it's file to a new file (different name)
+
+Here are some possible things you could change about each program.
+
+ * Styles and colours
+ * For the clock: change the hands (use a circle as the secod hand etc); Add a centre element; change the size; etc
+ * For ping: how fast it moves; the background colour; make it go faster as it goes; etc
+ * For the guessing game: change the messages or the flow of the game
+ 
+You have 3 weeks to make changes to these. Have fun and remeber to work in the new file(s)
+  
+
+
+
 ## Lesson 1 Getting started
 1. We need to install GIT
 
